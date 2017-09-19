@@ -1,0 +1,269 @@
+/* ===============================================
+// HEADERS
+// =============================================== */
+
+header.style-1{
+	.sale{
+		background-color: red;
+		color: white;
+		font-size: 13px;
+		padding: 7px
+	}
+	.header-links {
+	    transition: all .3s ease-out;
+	    padding: 20px 50px 0px;
+	    
+	    ul{
+	    	width: 200px;
+		    &.left>li{
+		    	padding-right:20px;
+		    }
+		    &.right>li{
+		    	padding-left:20px;
+		    	i {
+		    		font-size:25px;
+		    	}
+		    }
+		    >li{
+		    	font-size: 17px;
+		    	a{
+		    		color: #484848;
+			    	i,img{
+			    		padding-right:10px;
+			    	}
+		    	}
+		    }
+	    }
+	    div.logo{
+            display: block;
+	    }
+	}
+	.navbar {
+		background-color: white;
+		.navbar-nav {
+			width: 100%;
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    a.nav-link{
+		    	color: black;
+		    	padding: 10px 40px;
+    			text-transform: uppercase;
+    			font-size: 13px;
+		    }
+		    input{
+		    	font-weight: 100;
+		    	border: none;
+		    	border-bottom: 1px solid gray;
+		    }
+		}
+	    .navbar-brand{
+	    	width: calc(100% - 90px);
+	    	ul>li{
+		    	padding-left:15px;
+		    	i {
+		    		font-size:25px;
+		    	}
+		    }
+	    }
+	}	
+}
+
+header.style-2{
+	>div.sale{
+		background-color: #f5f5f5;
+		padding-top: 3px;
+		height: 25px;
+		line-height: 22px;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 11px;
+		font-weight: 600;
+		letter-spacing: 0.17em;
+		vertical-align: middle;
+	}
+	ul.navbar-nav>li>a{
+		font-size: 13px;
+	}
+}
+
+header.style-3{
+	ul>li{
+		padding: 25px;
+    	font-size: 16px;
+		a{
+			color: #bfbfbf;
+		}
+	}
+}
+
+header.style-4{
+	.header-tools{
+		background-color: #f2f2f2;
+	}
+	ul.nav.cart-actions, ul.currency-actions{
+		padding: 0;
+		margin: 0;
+		>li{
+			padding: 10px 20px;
+		}
+	}
+	ul.nav.cart-actions{
+		background-color: white;
+	}
+}
+
+header.style-5{
+	nav{
+		background-color: white;
+	}
+}
+
+header.style-6{
+	// height: 50px;
+	ul{
+		padding: 0;
+		margin: 0;
+		li{
+			float: left;
+			list-style: none;
+		}
+	}
+	.special-message{
+		background-color: $primary-color;
+		color: $secondary-color;
+		p{
+			padding: 0;
+			margin: 0;
+		}
+	}
+}
+
+header.style-7{
+	.top-bar{
+		color: #000;
+		background-color: #fff;
+		border-bottom: #ccc solid 1px;
+		font-size: 11px;
+		height: 30px;
+		line-height: 30px;
+		.user-info a{
+			padding-left: 15px;
+		}
+	}
+
+	.site-header {
+		background-color: none;
+		padding: 10px 25px;
+		>div>a{
+			border: none;
+			text-decoration: none;
+			img#logo_image {
+				height: 42px;
+				width: auto;
+			}
+		}
+		>div#search {
+			border: 0;
+			margin: 0;
+			padding: 0;
+			input {
+				background-color: #ffffff;
+				border: 1px solid #E6E6E6;
+				color: #808080;
+				font-family: $main-font-family;
+				font-weight: normal;
+				height: 42px;
+				line-height: 42px;
+				position: absolute;
+				text-indent: 10px;
+				font-style: normal;
+				letter-spacing: 0.12px;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+			}
+			button#btn-search {
+				position: absolute;
+				background-color: #FFFFFF;
+				height: 40px;
+				color: #808080;
+				width: 40px;
+				margin: 0;
+				padding: 0;
+				right: 1px;
+				top: 1px;
+				border: 0;
+			}
+			#search input:focus {
+				outline: none !important;
+				border-color: black !important;
+				box-shadow: none !important;
+			}
+		}
+		
+		>div.cart>a{
+			line-height: 40px;
+			padding: 20px 0;
+			text-decoration: none;
+		}
+		>div.cart>a:hover {
+			text-decoration: none;
+		}
+	}
+
+	ul.nav{
+		background-color: black;
+		>li{
+			list-style: none;
+			>a{
+				padding: 15px 0;
+				color: white;
+			}
+		}
+		li:first-child,li:last-child{
+			>a{
+				padding: 15px 42px;
+			}
+		}
+	}
+
+}
+
+header.style-8{
+	.offer{
+		background-color: #f2f2f2;
+		span{
+			font-size: 13px;
+			letter-spacing: -0.9em;
+			padding: 4px 20px;
+		}
+	}
+	.logo{
+		font-size: 60px;
+	}
+	.menu{
+		padding: 0 100px 10px;
+	}
+	ul.nav{
+		li{
+			// color: red;
+		}
+	}
+}
+
+header.style-9{
+	ul.nav{
+		li{
+			color: #333;
+			padding: 15px 23px;
+			line-height: 40px;
+			text-decoration: none;
+			-moz-user-select: none;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-webkit-user-select: none;
+			-webkit-user-drag: none;
+			user-select: none;
+		}
+	}
+}

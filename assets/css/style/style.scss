@@ -1,0 +1,91 @@
+// http://mynameismatthieu.com/WOW/docs.html
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+$main-font-family: 'Josefin Sans', sans-serif;
+$primary-color: black;
+$secondary-color: white;
+$global-widget-padding: 100px;
+
+body {
+    // font-family: $main-font-family;
+    font-weight: 100;
+}
+
+/* navbar */
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+    margin-bottom: 0px;
+    position: fixed;
+    width: 100%;
+    border-radius: 0px;
+    z-index: 10007;
+}
+
+.content-space {
+  padding: 0px;
+  margin-bottom: 0px;
+  color: inherit;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+
+.page-break {
+    width: 50%;
+    height: 3px;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.section-title{
+    // padding-top: 50px;
+    h3{
+        font-size: 24px;
+        font-weight:bold;
+        line-height: 15px;
+    }
+    a{
+        color: black;
+        cursor: pointer;
+        float: none;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        border-bottom: 1px solid #d6d6d6;
+        display: inline-block;
+        line-height: 12px;
+        margin-bottom: 20px;
+    }
+}
+
+
+@import "headers.scss";
+
+// FOOTERS
+
+@import "cart.scss";
+@import "slider.scss";
+
+@import "buttons.scss";
+
+
+/* FICHA DEL PRODUCTO */
+@import "product-detail.scss";
+@import "login.scss";
+@import "customer-service.scss";
+@import "create-account.scss";
+@import "category.scss";
+@import "account.scss";
+@import "checkout.scss";
+@import "search.scss";
+
+/* HOMEPAGE */
+@import "homepage_3.scss";
+@import "homepage/footers.scss";
+@import "widgets.scss";

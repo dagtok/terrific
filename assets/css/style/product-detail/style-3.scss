@@ -1,0 +1,193 @@
+div#variation-3.product-detail{
+    float: left;
+    position: relative;
+    margin-left: 5%;
+    width: 92%;
+    >div.breadcrumbs {
+        >ul{
+            list-style: none;
+            padding: 0;
+            margin: 10px 0px;
+            >li.category{
+                >a{
+                    color: #999;
+                }
+            }
+        }
+    }
+    >h2.product-brand{
+        margin: 0;
+        padding:0;
+        >a{
+            color: #333;
+            font-size: 27px;
+            font-weight: bolder;
+        }
+    }
+    >h1.product-name{
+        font-size: 19px;
+        padding: 0;
+        margin: 0;
+    }
+    >div.product-price{
+        h3{
+            span.price{
+                font-weight: bolder;
+            }
+        }
+    }
+    >fieldset#product-options-wrapper.product-options{
+        >dl{
+            >dd.product-option.product-option-color {
+                >div.input-box.input-box{
+                    select.required-entry.super-attribute-select{
+
+                    }
+                }
+                
+                >div.row{
+                    div.select-items{
+                        select[name="size"][id="select-size"]{
+
+                        }
+                    }
+
+                    div.select-size{
+                        div{
+                            div.medida{
+                                span.size{
+
+                                }
+                            }
+                            ul.list-unstyled.select-list{
+                                li{
+                                    a{
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            >dd.product-option-size{
+                button.option-size{
+                    background-color:transparent;
+                    box-sizing: border-box;
+                    border: 1px solid #ddd;
+                    color: #111;
+                    display: inline-block;
+                    font-size: 12px;
+                    line-height: 1em;
+                    padding: 12px 15px;
+                    text-align: center;
+                }
+            }
+            >dd{
+                a.product-sizing-guide.sizing-chart{
+                    color: #999;
+                    display: inline-block;
+                    font-size: 14px;
+                    margin-top: 1em;
+                }
+            }
+        }
+    }
+    div.product-buttons-primary.clearfix{
+        // padding: 30px 0px;
+        button.button.btn-cart.cart{
+            box-sizing: border-box;
+            background: #000;
+            border: 0;
+            color: #fff;
+            display: block;
+            float: left;
+            font-weight: bold;
+            line-height: 1em;
+            margin: 0;
+            padding: 16px 24px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    
+    div.product-messaging{
+        padding-top:20px;
+        a.product-messaging-details{
+            float: right;
+        }
+        p{
+            strong{
+
+            }
+        }
+    }
+    
+    div.product-buttons-secondary{
+        margin-bottom: 30px;
+        div.wishlist-wrapper{
+            float: left;
+            margin-right: 4%;
+            width: 48%;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid lightgray;
+            a.link-wishlist.wishlist{
+
+            }
+        }
+    
+        div.product-share{
+            text-align: center;
+            padding: 10px;
+            border: 1px solid lightgray;
+            float: left;
+            margin: 0;
+            position: relative;
+            width: 48%;
+            strong{
+
+            }
+            ul{
+                display: none;
+                li{
+                    a{}
+                }
+            }
+        }
+    }
+    .panel-default {
+        border: none;
+    }
+    .panel-default>.panel-heading{
+        background-color:white;
+    }
+
+    .select-style {
+        padding: 3px;
+        margin: 10px 0px;
+        border: 1px solid #ddd;
+        // width: 120px;
+        overflow: hidden;
+        background-color: #fff;
+
+        background: #fff url("(") no-repeat 90% 50%;
+    }
+
+    .select-style select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+            appearance: none;
+    }
+
+    .select-style select:focus {
+        outline: none;
+    }
+}
+    

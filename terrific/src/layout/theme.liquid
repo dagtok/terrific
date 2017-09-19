@@ -1,0 +1,140 @@
+<!doctype html>
+<!--[if IE 9]> <html class="ie9 no-js supports-no-cookies" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js supports-no-cookies" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="{{ settings.color_primary }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  {% if settings.favicon != blank %}
+    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+  {% endif %}
+
+  {% capture seo_title %}
+    {{ page_title }}
+    {% if current_tags %}
+      {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+    {% endif %}
+    {% if current_page != 1 %}
+      &ndash; {{ 'general.meta.page' | t: page: current_page }}
+    {% endif %}
+    {% unless page_title contains shop.name %}
+      &ndash; {{ shop.name }}
+    {% endunless %}
+  {% endcapture %}
+  
+  <title> {{ seo_title }}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  {% include 'social-meta-tags' %}
+
+  {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+
+  <script>
+    document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+
+    window.theme = {
+      strings: {
+        addToCart: {{ 'products.product.add_to_cart' | t | json }},
+        soldOut: {{ 'products.product.sold_out' | t | json }},
+        unavailable: {{ 'products.product.unavailable' | t | json }}
+      },
+      moneyFormat: {{ shop.money_format | json }}
+    };
+  </script>
+
+  {% if template.directory == 'customers' %}
+    <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script><!--<![endif]-->
+    <!--[if lte IE 9]><script src="{{ 'shopify_common.js' | shopify_asset_url }}"></script><![endif]-->
+  {% endif %}
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'vendor.js' | asset_url }}"></script><![endif]-->
+
+  <!--[if (gt IE 9)|!(IE)]><!--><script src="{{ 'theme.js' | asset_url }}" defer="defer"></script><!--<![endif]-->
+  <!--[if lt IE 9]><script src="{{ 'theme.js' | asset_url }}"></script><![endif]-->
+
+  {{ content_for_header }}
+
+  <!-- CONTENIDO PARA DANIEL  S -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
+
+  
+  <!-- CUSTOM SCRIPTS -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+
+
+  {% include 'header-js' %}
+  {% include 'header-css-styles' %}
+  <!-- CONTENIDO PARA DANIEL -->
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+
+  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+  {% section 'header' %}
+  
+
+  <main role="main" id="MainContent">
+    {{ content_for_layout }}
+  </main>
+  
+  <!-- LATEST PRODUCTS -->
+  {% section 'widget-36' %}
+  
+  <!-- MENU DE MOBILES -->
+  {% section 'widget-35' %}
+  
+  <!-- BARRA DE FOOTER -->
+  {% section 'widget-24' %}
+  
+  {% section 'widget-22' %}
+
+  {% section 'widget-18' %}
+
+  {% section 'widget-19' %}
+
+  {% section 'widget-20' %}
+  
+  {% section 'widget-21' %}
+  {% section 'widget-25' %}
+  {% section 'widget-26' %}
+
+  {% section 'widget-27' %}
+  
+  {% section 'widget-37' %}
+
+  {% section 'widget-33' %}
+  {% section 'widget-34' %}
+  {% section 'widget-38' %}
+  {% section 'widget-39' %}
+
+  {% section 'widget-17' %}
+  {% section 'widget-13' %}
+  {% section 'widget-14' %}
+  {% section 'widget-15' %}
+  {% section 'widget-16' %}
+  {% section 'widget-9' %}
+  {% section 'widget-10' %}
+  {% section 'widget-11' %}
+  {% section 'widget-12' %}
+  {% section 'widget-6' %}
+  {% section 'widget-7' %}
+  {% section 'widget-8' %}
+  {% section 'widget-5' %}
+  {% section 'widget-32' %}
+  {% section 'widget-4' %}
+  {% section 'widget-3' %}
+  {% section 'widget-1' %}
+
+
+  {% section 'footer' %}
+
+</body>
+</html>

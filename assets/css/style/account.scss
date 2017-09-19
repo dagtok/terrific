@@ -1,0 +1,179 @@
+#account-dashboard {
+  font-family: $main-font-family;
+  margin-bottom: 32px; }
+  @media all and (min-width: 769px) {
+    #account-dashboard {
+      margin-top: 155px; } }
+  @media all and (max-width: 768px) {
+    #account-dashboard {
+      margin-top: 95px; } }
+  #account-dashboard h4 {
+    font-family: $main-font-family;
+    text-transform: uppercase;
+    font-size: 18px; }
+  #account-dashboard .content > .row {
+    opacity: 0;
+    transition: all 100ms linear;
+    max-height: 0;
+    overflow: hidden; }
+    #account-dashboard .content > .row.active {
+      opacity: 1;
+      max-height: 5000px;
+      transition: all 600ms linear; }
+  #account-dashboard .content button[type="submit"] {
+    background: #000;
+    color: #fff; }
+  #account-dashboard .content #dashboard .account .informacion {
+    position: relative; }
+    #account-dashboard .content #dashboard .account .informacion ul {
+      background: #f5f5f5;
+      padding: 20px; }
+      #account-dashboard .content #dashboard .account .informacion ul .title {
+        font-size: 14px;
+        font-family: $main-font-family;
+        text-transform: uppercase;
+        margin-bottom: 12px; }
+      #account-dashboard .content #dashboard .account .informacion ul li a {
+        text-decoration: underline; }
+    #account-dashboard .content #dashboard .account .informacion > a {
+      position: absolute;
+      right: 10%;
+      top: 14%;
+      text-decoration: underline; }
+      @media all and (max-width: 768px) {
+        #account-dashboard .content #dashboard .account .informacion > a {
+          top: 40%; } }
+  #account-dashboard .content #dashboard .account .manager {
+    margin: 10px 0;
+    display: block;
+    text-decoration: underline; }
+  #account-dashboard .content #cuenta h2, #account-dashboard .content #address h2, #account-dashboard .content #regalo h2 {
+    font-family: $main-font-family;
+    font-size: 26px;
+    text-transform: uppercase; }
+  #account-dashboard .content #cuenta h4, #account-dashboard .content #address h4, #account-dashboard .content #regalo h4 {
+    font-family: $main-font-family;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1.8px; }
+  #account-dashboard .content #cuenta .form-horizontal .form-content, #account-dashboard .content #address .form-horizontal .form-content, #account-dashboard .content #regalo .form-horizontal .form-content {
+    background: #f5f5f5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 32px; }
+    #account-dashboard .content #cuenta .form-horizontal .form-content .form-group .control-label, #account-dashboard .content #address .form-horizontal .form-content .form-group .control-label, #account-dashboard .content #regalo .form-horizontal .form-content .form-group .control-label {
+      position: relative;
+      text-align: left; }
+      #account-dashboard .content #cuenta .form-horizontal .form-content .form-group .control-label:after, #account-dashboard .content #address .form-horizontal .form-content .form-group .control-label:after, #account-dashboard .content #regalo .form-horizontal .form-content .form-group .control-label:after {
+        content: 'Campo Requerido';
+        color: #fe0000;
+        font-size: 10px;
+        width: 100%;
+        padding-left: 15px;
+        opacity: 0;
+        transition: all 600ms linear; }
+        @media all and (min-width: 769px) {
+          #account-dashboard .content #cuenta .form-horizontal .form-content .form-group .control-label:after, #account-dashboard .content #address .form-horizontal .form-content .form-group .control-label:after, #account-dashboard .content #regalo .form-horizontal .form-content .form-group .control-label:after {
+            position: absolute;
+            bottom: -15px;
+            right: 0; } }
+      #account-dashboard .content #cuenta .form-horizontal .form-content .form-group .control-label sup, #account-dashboard .content #address .form-horizontal .form-content .form-group .control-label sup, #account-dashboard .content #regalo .form-horizontal .form-content .form-group .control-label sup {
+        color: #fe0000; }
+    #account-dashboard .content #cuenta .form-horizontal .form-content .form-group select, #account-dashboard .content #address .form-horizontal .form-content .form-group select, #account-dashboard .content #regalo .form-horizontal .form-content .form-group select {
+      border-color: #ccc !important;
+      color: #555; }
+    #account-dashboard .content #cuenta .form-horizontal .form-content .form-group.error .control-label:after, #account-dashboard .content #address .form-horizontal .form-content .form-group.error .control-label:after, #account-dashboard .content #regalo .form-horizontal .form-content .form-group.error .control-label:after {
+      opacity: 1;
+      transition: all 600ms linear; }
+    #account-dashboard .content #cuenta .form-horizontal .form-content .form-group.error input[class*="form-control"], #account-dashboard .content #cuenta .form-horizontal .form-content .form-group.error select, #account-dashboard .content #address .form-horizontal .form-content .form-group.error input[class*="form-control"], #account-dashboard .content #address .form-horizontal .form-content .form-group.error select, #account-dashboard .content #regalo .form-horizontal .form-content .form-group.error input[class*="form-control"], #account-dashboard .content #regalo .form-horizontal .form-content .form-group.error select {
+      border: 1px solid #fe0000 !important;
+      background: #faebe7; }
+    #account-dashboard .content #cuenta .form-horizontal .form-content .form-group.error.not-number .control-label:after, #account-dashboard .content #address .form-horizontal .form-content .form-group.error.not-number .control-label:after, #account-dashboard .content #regalo .form-horizontal .form-content .form-group.error.not-number .control-label:after {
+      content: 'Sólo numeros'; }
+  @media all and (max-width: 768px) {
+    #account-dashboard .content #deseos .form .item .main {
+      padding: 0;
+      text-align: center; }
+      #account-dashboard .content #deseos .form .item .main:first-child {
+        margin-bottom: 12px; } }
+  @media all and (max-width: 991px) {
+    #account-dashboard .content #deseos .add {
+      margin-bottom: 12px; } }
+  @media all and (max-width: 768px) {
+    #account-dashboard .content #deseos .add {
+      margin-bottom: 24px; } }
+  #account-dashboard .content #deseos .add .btn, #account-dashboard .content #deseos .add .form-control {
+    display: inline-block;
+    vertical-align: top;
+    float: inherit; }
+  #account-dashboard .content #deseos .add .btn {
+    width: 75%;
+    background: #000;
+    color: #fff;
+    padding: 6px; }
+    @media all and (max-width: 991px) {
+      #account-dashboard .content #deseos .add .btn {
+        width: 70%;
+        margin-right: 5%; } }
+  #account-dashboard .content #deseos .add .form-control {
+    width: 25%;
+    padding: 3px;
+    text-align: center; }
+  #account-dashboard .content #deseos .add .medida p {
+    margin-top: 10px; }
+  #account-dashboard .content #deseos .add .medida a {
+    text-decoration: underline; }
+  @media all and (max-width: 991px) {
+    #account-dashboard .content #deseos .remove {
+      margin-bottom: 12px; } }
+  @media all and (max-width: 768px) {
+    #account-dashboard .content #deseos .remove {
+      margin-bottom: 32px; } }
+  #account-dashboard .content #deseos .remove a {
+    text-decoration: underline; }
+  @media all and (max-width: 991px) {
+    #account-dashboard .content #deseos .comments {
+      margin-bottom: 12px; } }
+  @media all and (max-width: 768px) {
+    #account-dashboard .content #deseos .comments a {
+      margin-bottom: 12px;
+      display: block; } }
+  #account-dashboard .dashboard .menu-collapsable {
+    position: relative;
+    padding: 8px 0;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000; }
+    #account-dashboard .dashboard .menu-collapsable h4 {
+      font-family: $main-font-family;
+      margin: 0; }
+    #account-dashboard .dashboard .menu-collapsable:focus {
+      color: #000;
+      text-decoration: none; }
+    #account-dashboard .dashboard .menu-collapsable:after {
+      content: '+';
+      position: absolute;
+      right: 2%;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #000;
+      font-size: 30px;
+      will-change: transform; }
+  @media all and (max-width: 768px) {
+    #account-dashboard .dashboard .list-group {
+      max-height: 0;
+      overflow: hidden; } }
+  #account-dashboard .dashboard .list-group-item {
+    background: #f5f5f5; }
+  #account-dashboard .dashboard .list-group-item.active, #account-dashboard .dashboard .list-group-item.active:focus {
+    background: #dfdfdf;
+    border-color: #ddd;
+    color: #000; }
+  #account-dashboard .dashboard .list-group-item:hover, #account-dashboard .dashboard .list-group-item.active:hover {
+    background: #dfdfdf; }
+  #account-dashboard .dashboard.open .menu-collapsable:after {
+    content: '-';
+    font-size: 50px;
+    top: 46%; }
+  #account-dashboard .dashboard.open .list-group {
+    max-height: 3000px;
+    transition: max-height 1000ms linear; }

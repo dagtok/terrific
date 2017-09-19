@@ -1,0 +1,199 @@
+// a {
+//     color: black;
+
+//     &:hover {
+//         color: black;
+//     }
+// }
+
+#categories-all {
+    
+    #products {
+        background-color: white;
+        margin: 10px auto;
+        max-height: 340px;
+        position: relative;
+
+        .product {
+            margin-bottom: 15px;
+            text-align: center;
+
+             a {
+                color:#000 !important;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            h3 {
+                font-size: 13px;
+                color: #000000;
+                margin: 10px;
+                margin-bottom: 0;
+                padding: 0;
+            }
+
+            h4 {
+                color: #666;
+                font-size: 12px;
+                margin-top: 5px;
+                margin-bottom: 0;
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
+
+    .breadcrumb {
+        background-color: initial;
+        font-size: 12px;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .color-black {
+        color: black !important;
+    }
+
+    h2 {
+        margin: 0 0 10px;
+    }
+
+    .toolbar {
+        margin-bottom: 15px;
+
+        .dropdown {
+            display: inline-block;
+            float: right;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #666;
+            overflow: hidden;
+            position: relative;
+
+            select {
+                -webkit-appearance: none;
+                width: 100%;
+                border: 0;
+                background: transparent;
+                padding: 10px;
+                font-size: 12px;
+                box-shadow: none;
+                font-style: normal;
+                width: 150px;
+
+                &:focus {
+                    outline: none;
+                }
+
+            }
+
+            &::after {
+                top: 49%;
+                right: 10px;
+                border: solid transparent;
+                content: " ";
+                height: 0;
+                width: 0;
+                position: absolute;
+                pointer-events: none;
+                border-color: transparent;
+                border-top-color: #000000;
+                border-width: 4px;
+                margin-top: -2px;
+                z-index: 0;
+            }
+        }
+    }
+
+    .toolbar-bottom {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .navigations {
+        float: right;
+        font-size: 12px;
+        margin: 0 20px;
+
+        .pagination {
+            margin: 0;
+
+            li {
+                a {
+                    border: 0;
+                    color: grey;
+
+                    &:focus {
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+
+                &:first-child,
+                &:last-child {
+                    a {
+                        color: black;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    .navigations-bottom {
+        margin-right: 0;
+    }
+
+    .product-count {
+        color: #666;
+        font-size: 12px;
+        float: left;
+        transform: translateY(45%);
+    }
+
+    .load-more {
+        background: black;
+        border: 0;
+        border-radius: 5px;
+        color: #FFFFFF;
+        font-weight: 100;
+        letter-spacing: 1px;
+        margin: 15px 0;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .add-margin-container-top {
+        margin-top: 155px;
+    }
+
+    @media(max-width: 768px) {
+        .product-count-bottom {
+            display: block;
+            margin: 20px 0;
+            margin-top: 0;
+            text-align: center;
+            transform: initial;
+            width: 100%;
+        }
+
+        .add-margin-container-top {
+            margin-top: 100px;
+        }
+
+        .toolbar {
+            margin-bottom: 20px;
+        }
+
+        .toolbar-bottom {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    }
+}
+
+

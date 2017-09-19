@@ -1,0 +1,94 @@
+:root {
+  --btn-bg-color: $primary-color;
+  --btn-hover: adjust-hue($primary-color, 45deg);
+}
+
+// Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+button.effect,
+a.effect {
+  background: none;
+  // border: 2px solid;
+  color: var(--btn-bg-color);
+  transition: 0.25s;  
+  font: inherit;
+  line-height: 1;
+  // margin: 0.5em;
+  padding: 1em 2em;
+  &:hover,
+  &:focus { 
+    border-color: var(--btn-hover);
+    color: white;
+  }
+  &.offset {  
+    box-shadow: 
+      0.3em 0.3em 0 0 var(--btn-bg-color),
+      inset 0.3em 0.3em 0 0 var(--btn-bg-color);
+  }
+}
+
+button:hover,
+button:focus,
+a:hover,
+a:focus {
+  // Animate the size, inside
+  &.fill {
+    box-shadow: inset 0 0 0 2em var(--btn-hover);
+  }
+
+  // Animate the size, outside
+  &.pulse {
+    color: var(--btn-bg-color);
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(red,0);
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--btn-hover); }
+  }
+
+  // Stack multiple shadows, one from the left, the other from the right
+  &.close {
+    text-shadow: none;
+    box-shadow: 
+      inset -8em 0 0 0 var(--btn-hover),
+      inset 8em 0 0 0 var(--btn-hover);  
+  }
+
+  // Size can also be negative; see how it's smaller than the element
+  &.raise {
+    color: var(--btn-bg-color);
+    box-shadow: 0 0.5em 0.5em -0.4em var(--btn-hover);
+    transform: translateY(-0.25em);
+  }
+
+  // Animating from the bottom
+  &.up {
+    box-shadow: inset 0 -3.25em 0 0 var(--btn-hover);
+  }
+
+  // Animating from the top
+  &.down {
+    box-shadow: inset 0 5em 0 0 var(--btn-hover);
+  }
+
+  // And from the left
+  &.slide {
+    box-shadow: inset 16em 0 0 0 var(--btn-hover);
+  }
+
+  &.bg-color {
+    background-color: var(--btn-bg-color);
+    border-color: var(--btn-bg-color);
+  }
+
+  // Multiple shadows, one on the outside, another on the inside
+  &.offset {
+      box-shadow: 
+        0 0 0 0 var(--btn-hover),
+        inset 6em 3.5em 0 0 var(--btn-hover);
+  }
+
+}
+
+// TODO: IMPLEMENT BUTTON EFFECTS ON https://codepen.io/davidicus/pen/emgQKJ
+// TODO: IMPLEMENT BUTTON EFFECTS ON https://codepen.io/kjbrum/pen/wBBLXx

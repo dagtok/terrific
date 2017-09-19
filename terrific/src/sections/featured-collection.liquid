@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row widget style-36">
+    <div class="col-md-12 text-center section-title">
+      {% if section.settings.title != blank %}
+        <h3>{{ section.settings.title | escape }}</h3>
+      {% endif %}
+      <a>VIEW LATEST PRODUCTS</a>
+    </div>
+
+    {%- assign collection = collections[section.settings.collection] -%}
+
+    {% for product in collection.products limit: 6 %}
+      <div class="col-6 col-md-3 product">
+        <a data-wow-delay="00ms" class="wow animated fadeIn" style="display: block;" href="{{ product.url | within: collection }}">
+          
+          {% if product.featured_image != blank %}
+            <img class="img-fluid" 
+                 src="{{ product.featured_image.src |  img_url: image_size }}"
+                 alt="{{ product.title }}">
+          {% endif %}
+          
+          <div class="product-caption">
+            <h3>{{ product.title }}</h3>
+            <p>
+              {% if product.compare_at_price > product.price %}
+
+                {% if product.price_varies %}
+                  {%- assign sale_price = product.price | money -%}
+                  {{ 'products.product.on_sale_from_html' | t: price: sale_price }}
+                {% else %}
+                  {{ 'products.product.on_sale' | t }}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% else %}
+                {% if product.price_varies %}
+                  {%- assign price = product.price | money -%}
+                  {{ 'products.product.from_text_html' | t: price: price }}
+                {% else %}
+                  {{ product.price | money }}
+                {% endif %}
+
+              {% endif %}
+            </p>
+          </div>
+        </a>
+      </div>
+    {% else %}
+
+      {% for i in (1..6) %}
+        <a href="#">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+
+          <p>
+            {{ 'homepage.onboarding.product_title' | t }}
+          </p>
+        </a>
+
+        <p>{{ 1999 | money }}</p>
+      {% endfor %}
+      
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "Collection"
+      }
+    ]
+  }
+
+{% endschema %}
