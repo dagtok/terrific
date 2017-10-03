@@ -70,6 +70,7 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
+  {% include settings.header_style %}
   {% comment %}{% section 'header' %}{% endcomment %}
   {% comment %}{% section 'header-style-2' %}{% endcomment %}
   
@@ -126,7 +127,8 @@
   {% section 'widget-47' %} {% endcomment %}
 
   
-  {% section 'footer' %}
+  {% comment %}{% section 'footer' %}{% endcomment %}
+  {% include settings.footer_style %}
   {% include 'header-js' %}
 </body>
 </html>
