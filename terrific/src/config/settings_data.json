@@ -31,11 +31,8 @@
         "featured-product": {
           "type": "featured-product"
         },
-        "widget-1": {
+        "widget-1":{
           "type": "widget-1"
-        },
-        "widget-35": {
-          "type": "widget-35"
         }
       },
       "content_for_index": [

@@ -8,6 +8,50 @@
     "theme_support_url": "https:\/\/dagtok.com"
   },
   {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Header Design"
+      },
+      {
+        "type": "select",
+        "id": "header_style",
+        "label": "Select Header Design",
+        "options": [{
+          "value": "header_style1",
+          "label": "Design 1"
+        }, {
+          "value": "header_style2",
+          "label": "Design 2"
+        }, {
+          "value": "header_style3",
+          "label": "Design 3"
+        }, {
+          "value": "header_style4",
+          "label": "Design 4"
+        }, {
+          "value": "header_style5",
+          "label": "Design 5"
+        }, {
+          "value": "header_style6",
+          "label": "Design 6"
+        }, {
+          "value": "header_style7",
+          "label": "Design 7"
+        }, {
+          "value": "header_style8",
+          "label": "Design 8"
+        }, {
+          "value": "header_style9",
+          "label": "Design 9"
+        }],
+        "default": "header_style1",
+        "info": "[View image with header designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1236\/4838\/files\/headers.png?9864885890855400604)"
+      }
+    ]
+  },
+  {
     "name": "Typography",
     "settings": [
       {

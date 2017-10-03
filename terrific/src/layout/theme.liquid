@@ -62,14 +62,6 @@
   {{ content_for_header }}
 
   <!-- CONTENIDO PARA DANIEL  S -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> 
-
-  
-  <!-- CUSTOM SCRIPTS -->
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-
-
-  {% include 'header-js' %}
   {% include 'header-css-styles' %}
   <!-- CONTENIDO PARA DANIEL -->
 </head>
@@ -78,9 +70,9 @@
 
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-  {% section 'header' %}
+  {% comment %}{% section 'header' %}{% endcomment %}
+  {% comment %}{% section 'header-style-2' %}{% endcomment %}
   
-
   <main role="main" id="MainContent">
     {{ content_for_layout }}
   </main>
@@ -88,43 +80,53 @@
   <!-- LATEST PRODUCTS -->
   
   
-  {% section 'widget-1' %}
-  {% comment %} {% section 'widget-3' %} {% endcomment %}
-  {% comment %} {% section 'widget-4' %} {% endcomment %}
-  {% comment %} {% section 'widget-5' %} {% endcomment %}
-  {% comment %} {% section 'widget-6' %} {% endcomment %}
-  {% comment %} {% section 'widget-7' %} {% endcomment %}
-  {% comment %} {% section 'widget-8' %} {% endcomment %}
-  {% comment %} {% section 'widget-9' %} {% endcomment %}
-  {% comment %} {% section 'widget-10' %} {% endcomment %}
-  {% comment %} {% section 'widget-11' %} {% endcomment %}
-  {% comment %} {% section 'widget-12' %} {% endcomment %}
-  {% comment %} {% section 'widget-13' %} {% endcomment %}
-  {% comment %} {% section 'widget-14' %} {% endcomment %}
-  {% comment %} {% section 'widget-15' %} {% endcomment %}
-  {% comment %} {% section 'widget-16' %} {% endcomment %}
-  {% comment %} {% section 'widget-17' %} {% endcomment %}
-  {% comment %} {% section 'widget-18' %} {% endcomment %}
-  {% comment %} {% section 'widget-19' %} {% endcomment %}
-  {% comment %} {% section 'widget-20' %} {% endcomment %}
-  {% comment %} {% section 'widget-21' %} {% endcomment %}
+  {% comment %}{% section 'widget-1' %}{% endcomment %}
+
+{% comment %}   {% section 'widget-3' %}
+  {% section 'widget-4' %}
+  {% section 'widget-5' %}
+  {% section 'widget-6' %}
+  {% section 'widget-7' %}
+  {% section 'widget-8' %}
+  {% section 'widget-9' %}
+  {% section 'widget-10' %}
+  {% section 'widget-11' %}
+  {% section 'widget-12' %}
+  {% section 'widget-13' %}
+  {% section 'widget-14' %}
+  {% section 'widget-15' %}
+  {% section 'widget-16' %}
+  {% section 'widget-17' %}
+  {% section 'widget-18' %}
+  {% section 'widget-19' %}
+  {% section 'widget-20' %}
+  {% section 'widget-21' %}
   {% section 'widget-22' %}
-
+  {% section 'widget-23' %}
   {% section 'widget-24' %}
-  {% comment %} {% section 'widget-25' %} {% endcomment %}
-  {% comment %} {% section 'widget-26' %} {% endcomment %}
-  {% comment %} {% section 'widget-27' %} {% endcomment %}
+  {% section 'widget-25' %}
+  {% section 'widget-26' %}
+  {% section 'widget-27' %} {% endcomment %}
 
-  {% comment %} {% section 'widget-32' %} {% endcomment %}
-  {% comment %} {% section 'widget-33' %} {% endcomment %}
-  {% comment %} {% section 'widget-34' %} {% endcomment %}
+{% comment %}   {% section 'widget-32' %}
+  {% section 'widget-33' %}
+  {% section 'widget-34' %}
   {% section 'widget-35' %}
   {% section 'widget-36' %}
-  {% comment %} {% section 'widget-37' %} {% endcomment %}
-  {% comment %} {% section 'widget-38' %} {% endcomment %}
-  {% comment %} {% section 'widget-39' %} {% endcomment %}
+  {% section 'widget-37' %}
+  {% section 'widget-38' %}
+  {% section 'widget-39' %}
+  {% section 'widget-40' %}
+  {% section 'widget-41' %}
+  {% section 'widget-42' %}
+  {% section 'widget-43' %}
+  {% section 'widget-44' %}
+  {% section 'widget-45' %}
+  {% section 'widget-46' %}
+  {% section 'widget-47' %} {% endcomment %}
+
   
   {% section 'footer' %}
-
+  {% include 'header-js' %}
 </body>
 </html>

@@ -51,15 +51,12 @@
                 <li>
                     <h4>ABOUT</h4>
                 </li>
-                <li>
-                    <a href="#">Careers</a>
-                </li>
-                <li>
-                    <a href="#">Affiliates</a>
-                </li>
-                <li>
-                    <a href="#">Stores</a>
-                </li>
+                {%- assign footer_linklist = section.settings.footer_linklist -%}
+                {% if linklists[footer_linklist].links.size > 0 %}
+                  {% for link in linklists[footer_linklist].links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                {% endif %}
             </ul>
         </section>
         <section class="col-md-3 d-none d-md-block">
@@ -153,7 +150,9 @@
         <section class="col-md-12 copyright wow animated fadeIn">
             <p>
                 <i class="fa fa-copyright" aria-hidden="true"></i>
-                Copyright © Mexico 2017 | All Rights Reserved. 
+
+                {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }} | {{ powered_by_link }}
+                <br>
                 <a href="#" >Terms & Conditions</a>
                  | 
                 <a href="#">Privacy Policy</a> <br>
@@ -201,19 +200,6 @@
       </ul>
     {% endunless %}
   {% endif %}
-
-  {%- assign footer_linklist = section.settings.footer_linklist -%}
-  {% if linklists[footer_linklist].links.size > 0 %}
-    <ul>
-      {% for link in linklists[footer_linklist].links %}
-        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
-  <div>
-    <small>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}. {{ powered_by_link }}</small>
-  </div>
 </footer>
 
 {% schema %}
