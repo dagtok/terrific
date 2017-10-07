@@ -14,12 +14,16 @@
             },
             "collection-list-2": {
               "type": "collection"
+            },
+            "collection-list-3": {
+              "type": "collection"
             }
           },
           "block_order": [
             "collection-list-0",
             "collection-list-1",
-            "collection-list-2"
+            "collection-list-2",
+            "collection-list-3"
           ]
         },
         "featured-collection": {
