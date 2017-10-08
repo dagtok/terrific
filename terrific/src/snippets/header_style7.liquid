@@ -81,7 +81,6 @@
                          placeholder="{{ 'general.search.placeholder' | t }}">
                   <button type="submit" id="btn-search">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <!-- <span class="icon-fallback-text">{{ 'general.search.submit' | t }}</span> -->
                   </button>
                 </fieldset>
               </form>
@@ -100,6 +99,30 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="d-flex justify-content-between bd-highlight nav">
+                  {%- for link in linklists.main-menu.links -%}
+                    <li class="p-2 bd-highlight">
+                      <a href="{{ link.url }}">
+                        {{ link.title | escape }}
+                      </a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% comment %}<div class="container-fluid d-none d-md-block">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="d-flex justify-content-between bd-highlight nav">
+                  {%- for link in linklists.main-menu.links -%}
+                  <li class="p-2 bd-highlight {% if link.active %} active {% endif %}">
+                    <a class="nav-link" href="{{ link.url }}">
+                      {{ link.title | escape }}
+                    </a>
+                  </li>
+                  {%- endfor -%}
+
                   {% for link in linklists[section.settings.main_linklist].links %}
                     {%- assign child_list_handle = link.title | handleize -%}
                     {% if menus[child_list_handle].links != blank %}
@@ -127,6 +150,16 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </div>{% endcomment %}
 
 </header>
+
+<div class="container-fluid widget style-2">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner" style="border: 1px solid gray; padding: 14px 0px; text-align: center;font-size: 20px; margin: 20px 0;">
+                New Markdowns—Up to 70% Off &nbsp; <a href="/womens/sale">Shop Sale</a>
+            </div>
+        </div>
+    </div>
+</div>

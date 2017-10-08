@@ -46,8 +46,76 @@
           "value": "header_style9",
           "label": "Design 9"
         }],
-        "default": "header_style1",
+        "default": "header_style7",
         "info": "[View image with header designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1236\/4838\/files\/headers.png?9864885890855400604)"
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Footer Design"
+      },
+      {
+        "type": "select",
+        "id": "footer_style",
+        "label": "Select Footer Design",
+        "options": [{
+          "value": "footer_style1",
+          "label": "Design 1"
+        }, {
+          "value": "footer_style2",
+          "label": "Design 2"
+        }, {
+          "value": "footer_style3",
+          "label": "Design 3"
+        }, {
+          "value": "footer_style4",
+          "label": "Design 4"
+        }, {
+          "value": "footer_style5",
+          "label": "Design 5"
+        }, {
+          "value": "footer_style6",
+          "label": "Design 6"
+        }, {
+          "value": "footer_style7",
+          "label": "Design 7"
+        }, {
+          "value": "footer_style8",
+          "label": "Design 8"
+        }, {
+          "value": "footer_style9",
+          "label": "Design 9"
+        }, {
+          "value": "footer_style10",
+          "label": "Design 10"
+        }, {
+          "value": "footer_style11",
+          "label": "Design 11"
+        }, {
+          "value": "footer_style12",
+          "label": "Design 12"
+        }, {
+          "value": "footer_style13",
+          "label": "Design 13"
+        }, {
+          "value": "footer_style14",
+          "label": "Design 14"
+        }, {
+          "value": "footer_style15",
+          "label": "Design 15"
+        }, {
+          "value": "footer_style16",
+          "label": "Design 16"
+        }, {
+          "value": "footer_style17",
+          "label": "Design 17"
+        }],
+        "default": "footer_style1",
+        "info": "[View image with footer designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1236\/4838\/files\/headers.png?9864885890855400604)"
       }
     ]
   },

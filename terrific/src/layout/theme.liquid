@@ -68,12 +68,33 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
+  {% comment %}<a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>{% endcomment %}
 
   {% include settings.header_style %}
-  {% comment %}{% section 'header' %}{% endcomment %}
-  {% comment %}{% section 'header-style-2' %}{% endcomment %}
   
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-carousel slider style-2">
+                <div class="item">
+                    <img class="img-fluid" src="https://www.endclothing.com/media/endclothing_cms/2/8/28-07-2017_givenchy_1600x900.jpg" />
+                    <div class="caption">
+                        <a href="#">
+                            <p class="title">
+                                ENV&Iacute;O GRATIS!
+                            </p>
+                            <p class="subtitle">
+                                En compras superiores a $700.
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
   <main role="main" id="MainContent">
     {{ content_for_layout }}
   </main>
@@ -127,8 +148,8 @@
   {% section 'widget-47' %} {% endcomment %}
 
   
-  {% comment %}{% section 'footer' %}{% endcomment %}
   {% include settings.footer_style %}
+
   {% include 'header-js' %}
 </body>
 </html>
