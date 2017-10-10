@@ -5,9 +5,11 @@
                 <img class="wow slideInUp img-fluid" src="https://needsupply.com/media/wysiwyg/201708/17_08_14_homepage_w_4.jpg">
                 <div class="message left d-flex wow  zoomIn">
                     <span class="align-self-center">
-                        <h3>New from PERRO</h3>
+                        <h3>
+                          {{ section.settings.title }}
+                        </h3>
                         <p>
-                            Lightweight fabrics and shirting stripes are softened with feminine details
+                            {{ section.settings.subtitle }}
                         </p>
                     </span>
                 </div>
@@ -21,13 +23,18 @@
   "settings": [{
     "type": "text",
     "id": "title",
-    "label": "Heading"
+    "label": "Title"
+  },{
+    "type": "text",
+    "id": "subtitle",
+    "label": "Subtitle"
   }],
   "presets": [{
     "category": "Custom Content",
     "name": "Widget 40",
     "settings": {
-      "title": "Hello World"
+      "title": "Hello World",
+      "subtitle": "Hello World"
     }
   }]
 }

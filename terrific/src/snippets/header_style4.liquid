@@ -15,7 +15,10 @@
         <div class="ml-auto">
           <ul class="nav cart-actions">
             <li>
-              <a href="#">Cart (0)</a>
+              <a href="/cart">
+                {{ 'layout.cart.title' | t }}
+                ({{ cart.item_count }} {{ 'layout.cart.items_count' | t: count: cart.item_count }})
+              </a>
             </li>
             <li>
               <a href="#">Checkout</a>
@@ -27,7 +30,7 @@
     <div class="col-12">
       <div class="d-flex justify-content-start">
         <div class="ml-auto mr-auto p-2">
-          5th Story London
+          {{ shop.name | escape }}
         </div>
         <!-- <div class="ml-auto p-2">
           <input type="text" placeholder="Search">
@@ -40,18 +43,19 @@
           <nav class="navbar navbar-expand-lg navbar-light">
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active">
+                {% comment %}<li class="nav-item active">
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li class="nav-item">
+                </li>{% endcomment %}
+                {%- for link in linklists.main-menu.links -%}
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ link.url }}">
+                      {{ link.title | escape }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+                {% comment %}<li class="nav-item">
                   <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
+                </li>{% endcomment %}
               </ul>
             </div>
           </nav>

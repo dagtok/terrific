@@ -1,7 +1,8 @@
-  <div class="container-fluid">
-    <div class="row widget style-10">
-      <div class="col-12">
-        <div class="text-wrap">
+<div class="container-fluid">
+  <div class="row widget style-10">
+    <div class="col-12">
+      <div class="text-wrap">
+        <a href="#">
           <svg viewBox="0 0 1000 80">
             <pattern 
               id="p-img" 
@@ -16,7 +17,7 @@
                   y="50%"
                   dy=".35em"
                   class="img-layer">
-              #GLAMOUR's
+              {{ section.settings.title }}
             </text>
             <linearGradient id="gr-overlay" x1="0" y1="0" x2="100%" y2="100%">
               <stop stop-color="hsla(50, 100%, 70%, 0.5)" offset="10%"/>
@@ -28,13 +29,14 @@
                   y="50%"
                   dy=".35em"
                   class="gradient-layer">
-              #GLAMOUR's
+              {{ section.settings.title }}
             </text>
           </svg>
-        </div>
+        </a>
       </div>
     </div>
   </div>
+</div>
 {% schema %}
 {
   "name": "Widget 10",

@@ -17,29 +17,24 @@
         </div>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            {% comment %}<li class="nav-item active">
               <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
-            </li>
+            </li>{% endcomment %}
             <li class="nav-item">
               <a class="nav-link" href="#">SHOP</a>
             </li>
+            {%- for link in linklists.main-menu.links -%}
             <li class="nav-item">
-              <a class="nav-link" href="#">COMING SOON</a>
+              <a class="nav-link" href="{{ link.url }}">
+                {{ link.title | escape }}
+              </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">RETAIL</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">INSTA</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">BLOG</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">LOG IN</a>
-            </li>
+            {%- endfor -%}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" 
+              id="navbarDropdownMenuLink" data-toggle="dropdown" 
+              aria-haspopup="true" 
+              aria-expanded="false">
                 INSPIRED
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

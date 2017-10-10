@@ -8,7 +8,7 @@
             </ul>
           </div>
           <div class="col-4 align-self-center p-2 text-center">
-            <h1>BBDAKOTA</h1>
+            <h1>{{ shop.name | escape }}</h1>
           </div>
           <div class="col-4 d-flex justify-content-end">
             <ul class="nav">
@@ -24,10 +24,13 @@
       </div>
       <div class="col-12 d-flex justify-content-center" style="border-top: 1px solid #e6e6e6;">
         <ul class="nav">
-          <li><a href="#">CLOTHING</a></li>
-          <li><a href="#">COLLECTIONS</a></li>
-          <li><a href="#">JOURNAL</a></li>
-          <li><a href="#">FIND A STORE</a></li>
+        {%- for link in linklists.main-menu.links -%}
+          <li>
+            <a href="{{ link.url }}">
+              {{ link.title | escape }}
+            </a>
+          </li>
+        {%- endfor -%}
         </ul>
       </div>
     </div>

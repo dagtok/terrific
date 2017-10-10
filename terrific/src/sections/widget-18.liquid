@@ -2,9 +2,11 @@
     <div class="row widget style-18">
         <div class="col-md-12 main-phrase wow  slideInUp">
             <p>
-                Introducing the 1996 Collection—Three classic styles, one less trip to the vintage store.
+                {{ section.settings.phrase }}
             </p>
-            <a class="button effect up" href="#">Shop the Collection</a>
+            <a class="button effect up" href="#">
+              {{ section.settings.buttontext }}
+            </a>
         </div>
     </div>
 </div>
@@ -13,14 +15,19 @@
   "name": "Widget 18",
   "settings": [{
     "type": "text",
-    "id": "title",
+    "id": "phrase",
+    "label": "Heading"
+  },{
+    "type": "text",
+    "id": "buttontext",
     "label": "Heading"
   }],
   "presets": [{
     "category": "Custom Content",
     "name": "Widget 18",
     "settings": {
-      "title": "Hello World"
+      "phrase": "Hello World",
+      "buttontext": "World"
     }
   }]
 }
