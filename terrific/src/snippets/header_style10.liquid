@@ -14,13 +14,18 @@
       <div class="row d-flex mb-3">
         <div class="align-self-center p-2">
           <ul class="nav d-flex align-content-end">
-            <li>Shop</li>
-            <li>Discover</li>
-            <li>Custom Mode</li>
+            {%- for link in linklists.main-menu.links -%}
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title | escape }}
+              </a>
+            </li>
+            {%- endfor -%}
           </ul>
         </div>
         <div class="align-self-center p-2">
           <img class="img-fluid" src="http://www.edwardgreen.com/sites/all/themes/edwardgreen/logo@x2.png">
+          {% comment %}{{ shop.name | escape }}{% endcomment %}
         </div>
         <div class="align-self-center p-2">
           <ul class="nav d-flex align-content-start">

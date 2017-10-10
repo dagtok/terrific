@@ -13,7 +13,7 @@
               United Kingdom
             </div>
             <div class="ml-auto mr-auto logo">
-              END.
+              {{ shop.name | escape }}
             </div>
             <div class="justify-content-end">
               <div>
@@ -33,14 +33,13 @@
       <div class="col-12">
         <div class="menu">
           <ul class="nav d-flex justify-content-between">
-            <li><a href="#">LATEST</a></li>
-            <li><a href="#">BRANDS</a></li>
-            <li><a href="#">CLOTHING</a></li>
-            <li><a href="#">FOOTWEAR</a></li>
-            <li><a href="#">ACCESSORIES</a></li>
-            <li><a href="#">GROOMIN</a></li>
-            <li><a href="#">GIFTS</a></li>
-            <li><a href="#">SALE</a></li>
+            {%- for link in linklists.main-menu.links -%}
+            <li>
+              <a href="{{ link.url }}">
+                {{ link.title | escape }}
+              </a>
+            </li>
+            {%- endfor -%}
           </ul>
         </div>
       </div>

@@ -1,0 +1,46 @@
+<header class="container style-5">
+  <div class="row">
+    <div class="col-12">
+      <ul class="nav d-flex justify-content-right">
+          <li>
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </li>
+          <li>
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+          </li>
+          <li>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </li>
+        </ul>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <img src="//cdn.shopify.com/s/files/1/0908/2096/t/2/assets/logo.png?2640229249847002412" alt="Old Harry">
+    </div>
+    <div class="col-12">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            {% comment %}<li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>{% endcomment %}
+            {%- for link in linklists.main-menu.links -%}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ link.url }}">
+                {{ link.title | escape }}
+              </a>
+            </li>
+            {%- endfor -%}
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

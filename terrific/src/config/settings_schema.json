@@ -45,6 +45,9 @@
         }, {
           "value": "header_style9",
           "label": "Design 9"
+        }, {
+          "value": "header_style10",
+          "label": "Design 10"
         }],
         "default": "header_style7",
         "info": "[View image with header designs](https:\/\/cdn.shopify.com\/s\/files\/1\/1236\/4838\/files\/headers.png?9864885890855400604)"
