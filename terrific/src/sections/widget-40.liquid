@@ -1,8 +1,14 @@
+{% if section.settings.banner_image != blank %}
+  {% assign img_url = section.settings.banner_image | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
 <div class="container-fluid">
     <div class="row widget style-40">
         <div class="col-md-12">
             <a href="#">
-                <img class="wow slideInUp img-fluid" src="https://needsupply.com/media/wysiwyg/201708/17_08_14_homepage_w_4.jpg">
+                <img class="wow slideInUp img-fluid" src="{{ img_url }}">
                 <div class="message left d-flex wow  zoomIn">
                     <span class="align-self-center">
                         <h3>
@@ -20,22 +26,29 @@
 {% schema %}
 {
   "name": "Widget 40",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Title"
-  },{
-    "type": "text",
-    "id": "subtitle",
-    "label": "Subtitle"
-  }],
-  "presets": [{
-    "category": "Custom Content",
-    "name": "Widget 40",
-    "settings": {
-      "title": "Hello World",
-      "subtitle": "Hello World"
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },{
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle"
+    }],
+    "presets": [{
+      "category": "Custom Content",
+      "name": "Widget 40",
+      "settings": {
+        "title": "Hello World",
+        "subtitle": "Hello World"
+      }
     }
-  }]
+  ]
 }
 {% endschema %}

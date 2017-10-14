@@ -40,17 +40,17 @@
 {% schema %}
 {
   "name": "Widget 10",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "#EXTREME"
+    }
+  ],
   "presets": [{
     "category": "Custom Content",
-    "name": "Widget 10",
-    "settings": {
-      "title": "Hello World"
-    }
+    "name": "Widget 10"
   }]
 }
 {% endschema %}

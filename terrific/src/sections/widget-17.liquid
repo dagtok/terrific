@@ -1,18 +1,33 @@
+{% if section.settings.banner_image_1 != blank %}
+  {% assign img_url_1 = section.settings.banner_image_1 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+{% if section.settings.banner_image_2 != blank %}
+  {% assign img_url_2 = section.settings.banner_image_2 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+{% if section.settings.banner_image_3 != blank %}
+  {% assign img_url_3 = section.settings.banner_image_3 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
 <div class="container">
   <div class="row widget style-17">
     <div class="col-12 text-center">
       <h1 class="section-title">
-        Soft accessories, playfully designed with you in mind
+        {{ section.settings.title }}
       </h1>
     </div>
     <article class="col-6 ml-auto mr-auto col-md-4">
       <figure class="featured">
-        <img class="img-fluid" 
-        src="//cdn.shopify.com/s/files/1/0887/5768/collections/grey_lavender_galaxy_fox_fur_scarf_1024x1024.jpg">
+        <img class="img-fluid" src="{{ img_url_1 }}">
         <div class="overlay-wrapper color-white">
           <div class="overlay">
             <h3 class="title">
-              <a href="#">Scarves</a>
+              <a href="#">{{ section.settings.banner_title_1 }}</a>
             </h3>
           </div>
         </div>
@@ -20,12 +35,11 @@
     </article>
     <article class="col-6 ml-auto mr-auto col-md-4">
       <figure class="featured">
-        <img class="img-fluid" 
-        src="//cdn.shopify.com/s/files/1/0887/5768/collections/grey_lavender_galaxy_fox_fur_scarf_1024x1024.jpg">
+        <img class="img-fluid" src="{{ img_url_2 }}">
         <div class="overlay-wrapper color-white">
           <div class="overlay">
             <h3 class="title">
-              <a href="#">Scarves</a>
+              <a href="#">{{ section.settings.banner_title_2 }}</a>
             </h3>
           </div>
         </div>
@@ -33,12 +47,11 @@
     </article>
     <article class="col-6 ml-auto mr-auto col-md-4">
       <figure class="featured">
-        <img class="img-fluid" 
-        src="//cdn.shopify.com/s/files/1/0887/5768/collections/grey_lavender_galaxy_fox_fur_scarf_1024x1024.jpg">
+        <img class="img-fluid" src="{{ img_url_3 }}">
         <div class="overlay-wrapper color-white">
           <div class="overlay">
             <h3 class="title">
-              <a href="#">Scarves</a>
+              <a href="#">{{ section.settings.banner_title_3 }}</a>
             </h3>
           </div>
         </div>
@@ -49,11 +62,58 @@
 {% schema %}
 {
   "name": "Widget 17",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "banner_title_1",
+      "label": "Banner title 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_1",
+      "label": "Banner 1"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_1",
+      "label": "Banner 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "banner_title_2",
+      "label": "Banner title 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_2",
+      "label": "Banner 2"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_2",
+      "label": "Banner 2 Link"
+    },
+    {
+      "type": "text",
+      "id": "banner_title_3",
+      "label": "Banner title 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_3",
+      "label": "Banner 3"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_3",
+      "label": "Banner 3 Link"
+    }
+  ],
   "presets": [{
     "category": "Custom Content",
     "name": "Widget 17",

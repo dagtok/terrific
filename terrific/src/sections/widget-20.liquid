@@ -1,15 +1,21 @@
+{% if section.settings.banner_image != blank %}
+  {% assign img_url = section.settings.banner_image | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
 <div class="container">
     <div class="row widget style-20 d-flex">
         <div class="col-12 col-sm-6 wow  slideInUp">
-            <img src="img/slider/main_section.jpg" class="img-fluid">
+            <img src="{{ img_url }}" class="img-fluid">
         </div>
-        <div class="col-12 col-sm-6 wow  slideInUp align-self-center" data-wow-delay="100ms">
+        <div class="col-12 col-sm-6 wow slideInUp align-self-center" data-wow-delay="100ms">
             <div class="column-text text-center text-sm-left">
-                <h3>NEED CENTER</h3>
+                <h3>{{ section.settings.title }}</h3>
                 <p>
-                    Introducing the NEED 1996 Collection—Everything you love about vintage (and the '90s), with a sleeker and slimmer silhouette for everyday wear.
+                    {{ section.settings.message }}
                 </p>
-                <a class="effect up" href="#">Shop Now</a>
+                <a class="effect up" href="{{ section.settings.product_url }}">Shop Now</a>
             </div>
         </div>
     </div>
@@ -17,11 +23,29 @@
 {% schema %}
 {
   "name": "Widget 20",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "message",
+      "default": "Introducing the ROK 1996 Collection —Everything you love about vintage (and the '90s), with a sleeker and slimmer silhouette for everyday wear.",
+      "label": "Message"
+    },
+    {
+      "type": "url",
+      "id": "product_url",
+      "label": "Url"
+    }
+  ],
   "presets": [{
     "category": "Custom Content",
     "name": "Widget 20",

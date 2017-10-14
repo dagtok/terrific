@@ -1,67 +1,105 @@
+{% if section.settings.banner_image_1 != blank %}
+  {% assign img_url_1 = section.settings.banner_image_1 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_2 != blank %}
+  {% assign img_url_2 = section.settings.banner_image_2 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_3 != blank %}
+  {% assign img_url_3 = section.settings.banner_image_3 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_4 != blank %}
+  {% assign img_url_4 = section.settings.banner_image_4 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_5 != blank %}
+  {% assign img_url_5 = section.settings.banner_image_5 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_6 != blank %}
+  {% assign img_url_6 = section.settings.banner_image_6 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
 <div class="container-fluid widget style-27">
     <div class="container">
         <div class="row">
               <div class="col-12">
-                <h1 class="text-center">This is a content block</h1>
+                <h1 class="text-center">
+                  {{ section.settings.title }}
+                </h1>
 
                 <div class="row">
                     <div class="col-md-4">
                       <div class="side">
-                        <a href="#" class="banner-link"> 
-                            <img src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/belts.png" >
+                        <a href="{{ section.settings.banner_link_1 }}" class="banner-link"> 
+                            <img src="{{ img_url_1 }}" >
                         </a>
                         <div>
-                            <h4>Belts</h4>
-                            <a href="#" class="hiddabl">Shop Now</a>
+                            <h4>{{ section.settings.title_1 }}</h4>
+                            <a href="{{ section.settings.banner_link_1 }}" class="hiddabl">Shop Now</a>
                         </div>
                       </div>
                       <div class="side">
-                         <a href="#" class="banner-link"> 
-                            <img src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/wallets2.png">
+                         <a href="{{ section.settings.banner_link_2 }}" class="banner-link"> 
+                            <img src="{{ img_url_2 }}">
                         </a>
                         <div>
-                            <h4>Wallets</h4>
-                            <a href="#" class="hiddabl">Shop Now</a>
+                            <h4>{{ section.settings.title_2 }}</h4>
+                            <a href="{{ section.settings.banner_link_2 }}" class="hiddabl">Shop Now</a>
                         </div>
                       </div>
                     </div>
                     
                     <div class="col-md-4">
                         <div class="center">
-                            <a href="#" class="banner-link"> 
-                                <img class="img-fluid" src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/jackets1.png" >
+                            <a href="{{ section.settings.banner_link_3 }}" class="banner-link"> 
+                                <img class="img-fluid" src="{{ img_url_3 }}">
                             </a>
                             <div>
-                                <h4>Jackets</h4>
-                                <a href="#" class="hiddabl">Shop Now</a>
+                                <h4>{{ section.settings.title_3 }}</h4>
+                                <a href="{{ section.settings.banner_link_3 }}" class="hiddabl">Shop Now</a>
                             </div>
                         </div>
                    </div>
 
                    <div class="col-md-4 side-wrapper">
                       <div class="side r-side r-sale" style="background: #000; color: #fff;">
-                         <a href="#" class="banner-link"> 
-                            <img src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/sale.jpg" >
+                         <a href="{{ section.settings.banner_link_4 }}" class="banner-link"> 
+                            <img src="{{ img_url_4 }}" >
                         </a>
                         <div class="banner-descr">
                             <div>
-                              <h1>Sale</h1>
+                              <h1>{{ section.settings.title_4 }}</h1>
                               <span>Get Up to 50% Off</span>
                             </div>
                             <div>
-                                <a href="#">
+                                <a href="{{ section.settings.banner_link_4 }}">
                                     Shop Now
                                 </a>
                             </div>
                         </div>
                       </div>
                       <div class="side r-side">
-                         <a href="#" class="banner-link"> 
-                            <img src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/backpacks.png" >
+                         <a href="{{ section.settings.banner_link_5 }}" class="banner-link"> 
+                            <img src="{{ img_url_5 }}" >
                         </a>
                          <div class="bann-desc">
-                            <h4>Backpacks</h4>
-                            <a href="#" class="hiddabl">
+                            <h4>{{ section.settings.title_5 }}</h4>
+                            <a href="{{ section.settings.banner_link_5 }}" class="hiddabl">
                                 Shop Now
                             </a>
                          </div>
@@ -69,15 +107,15 @@
                    </div>
                    <div class="row">
                       <div class=" bottom-banner col-lg-12">
-                        <a href="#" class="banner-link"> 
-                            <img src="http://belvg.net/prestashop-themes/sellon/prestashop/img/cms/bottom-banner.png" alt="">
+                        <a href="{{ section.settings.banner_link_6 }}" class="banner-link"> 
+                            <img src="{{ img_url_6 }}" alt="">
                         </a>
                         <div class="banner-desc">
-                            <h2>The Style Room</h2>
+                            <h2>{{ section.settings.title_6 }}</h2>
                             <span>
                                 See what’s new from contemporary, classic, and designer fashion brands
                             </span>
-                            <a class="more-button effect up" href="#">
+                            <a class="more-button effect up" href="{{ section.settings.banner_link_6 }}">
                                 More
                             </a>
                         </div>
@@ -89,16 +127,109 @@
           </div>
     </div>
 </div>
+
 {% schema %}
 {
   "name": "Widget 27",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_1",
+      "label": "Banner 1"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Banner 1 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_1",
+      "label": "Banner 1 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_2",
+      "label": "Banner 2"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Banner 2 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_2",
+      "label": "Banner 2 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_3",
+      "label": "Banner 3"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Banner 3 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_3",
+      "label": "Banner 3 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_4",
+      "label": "Banner 4"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Banner 4 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_4",
+      "label": "Banner 4 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_5",
+      "label": "Banner 5"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Banner 5 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_5",
+      "label": "Banner 5 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_6",
+      "label": "Banner 6"
+    },
+    {
+      "type": "text",
+      "id": "title_6",
+      "label": "Banner 6 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_6",
+      "label": "Banner 6 Link"
+    }
+  ],
   "presets": [{
-    "category": "Custom Content",
+    "category": "Image",
     "name": "Widget 27",
     "settings": {
       "title": "Hello World"

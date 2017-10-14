@@ -1,33 +1,63 @@
+{% if section.settings.banner_image_1 != blank %}
+  {% assign img_url_1 = section.settings.banner_image_1 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_2 != blank %}
+  {% assign img_url_2 = section.settings.banner_image_2 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_3 != blank %}
+  {% assign img_url_3 = section.settings.banner_image_3 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_4 != blank %}
+  {% assign img_url_4 = section.settings.banner_image_4 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
+{% if section.settings.banner_image_5 != blank %}
+  {% assign img_url_5 = section.settings.banner_image_5 | img_url: '2048x2048' %}
+{% comment %}{% else %}
+  {% assign img_url = 'layout9_image1.jpg' | asset_url %}{% endcomment %}
+{% endif %}
+
 <div class="container">
   <div class="row widget style-32">
     <div class="col-md-4">
-      <a href="#">
-        <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0908/2096/t/2/assets/homepage-womens-winter2016.jpg">
-        <div class="panel-title">Story</div>
+      <a href="{{ section.settings.banner_link_1 }}">
+        <img class="img-fluid" src="{{ img_url_1 }}">
+        <div class="panel-title">{{ section.settings.title_1 }}</div>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="#">
-        <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0908/2096/t/2/assets/homepage-womens-winter2016.jpg">
-        <div class="panel-title">Accesories</div>
+      <a href="{{ section.settings.banner_link_2 }}">
+        <img class="img-fluid" src="{{ img_url_2 }}">
+        <div class="panel-title">{{ section.settings.title_2 }}</div>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="#">
-        <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0908/2096/t/2/assets/homepage-womens-winter2016.jpg">
-        <div class="panel-title">Womens</div>
+      <a href="{{ section.settings.banner_link_3 }}">
+        <img class="img-fluid" src="{{ img_url_3 }}">
+        <div class="panel-title">{{ section.settings.title_3 }}</div>
       </a>
     </div>
     <div class="col-md-4">
-      <a href="#">
-        <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0908/2096/t/2/assets/homepage-womens-winter2016.jpg">
-        <div class="panel-title">Womens</div>
+      <a href="{{ section.settings.banner_link_4 }}">
+        <img class="img-fluid" src="{{ img_url_4 }}">
+        <div class="panel-title">{{ section.settings.title_4 }}</div>
       </a>
     </div>
     <div class="col-md-8">
-      <a href="#">
-        <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0908/2096/t/2/assets/2016-Lookbook.jpg">
-        <div class="panel-title">Womens</div>
+      <a href="{{ section.settings.banner_link_5 }}">
+        <img class="img-fluid" src="{{ img_url_5 }}">
+        <div class="panel-title">{{ section.settings.title_5 }}</div>
       </a>
     </div>
   </div>
@@ -35,16 +65,92 @@
 {% schema %}
 {
   "name": "Widget 32",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image_1",
+      "label": "Banner 1"
+    },
+    {
+      "type": "text",
+      "id": "title_1",
+      "label": "Banner 1 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_1",
+      "label": "Banner 1 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_2",
+      "label": "Banner 2"
+    },
+    {
+      "type": "text",
+      "id": "title_2",
+      "label": "Banner 2 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_2",
+      "label": "Banner 2 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_3",
+      "label": "Banner 3"
+    },
+    {
+      "type": "text",
+      "id": "title_3",
+      "label": "Banner 3 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_3",
+      "label": "Banner 3 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_4",
+      "label": "Banner 4"
+    },
+    {
+      "type": "text",
+      "id": "title_4",
+      "label": "Banner 4 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_4",
+      "label": "Banner 4 Link"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_5",
+      "label": "Banner 5"
+    },
+    {
+      "type": "text",
+      "id": "title_5",
+      "label": "Banner 5 title"
+    },
+    {
+      "type": "url",
+      "id": "banner_link_5",
+      "label": "Banner 5 Link"
+    }
+  ],
   "presets": [{
     "category": "Custom Content",
     "name": "Widget 32",
     "settings": {
-      "title": "Hello World"
+      "title_1": "Hello World",
+      "title_2": "Hello World",
+      "title_3": "Hello World",
+      "title_4": "Hello World",
+      "title_5": "Hello World"
     }
   }]
 }

@@ -32,8 +32,8 @@
           <div class="col-md-4 ml-auto mr-auto">
             <div class="content">
               <div class="border text-center">
-                <h1>#BABESINBBD</h1>
-                <button>EXPLORE BABES</button>
+                <h1>{{ section.settings.title }}</h1>
+                <button>{{ section.settings.button_text }}</button>
               </div>
             </div>
           </div>
@@ -45,17 +45,23 @@
 {% schema %}
 {
   "name": "Widget 11",
-  "settings": [{
-    "type": "text",
-    "id": "title",
-    "label": "Heading"
-  }],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "#SUMMERCCP"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "MORE"
+    }
+  ],
   "presets": [{
     "category": "Custom Content",
-    "name": "Widget 11",
-    "settings": {
-      "title": "Hello World"
-    }
+    "name": "Widget 11"
   }]
 }
 {% endschema %}
