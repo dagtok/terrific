@@ -51,15 +51,11 @@
                 <li>
                     <h4>ABOUT</h4>
                 </li>
-                <li>
-                    <a href="#">Careers</a>
-                </li>
-                <li>
-                    <a href="#">Affiliates</a>
-                </li>
-                <li>
-                    <a href="#">Stores</a>
-                </li>
+                {% if linklists.footer.links.size > 0 %}
+                    {% for link in linklists.footer.links %}
+                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                    {% endfor %}
+                {% endif %}
             </ul>
         </section>
         <section class="col-md-3 d-none d-md-block">
@@ -92,26 +88,20 @@
                 CONNECT
             </h4>
             <ul class="social-icons d-flex d-md-block justify-content-center justify-content-md-left">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-snapchat-ghost" aria-hidden="true"></i>
-                    </a>
-                </li>
+                {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+                {% for social in social_accounts %}
+                  {%- assign social_handle = social | handleize -%}
+                  {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+                  {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+                  {% if settings[social_link] != blank %}
+                    <li>
+                      <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                        <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
             </ul>
         </section>
         <section class="col-md-12">
@@ -152,8 +142,10 @@
         </section>
         <section class="col-md-12 copyright wow animated fadeIn">
             <p>
-                <i class="fa fa-copyright" aria-hidden="true"></i>
-                Copyright © Mexico 2017 | All Rights Reserved. 
+                {% comment %}<i class="fa fa-copyright" aria-hidden="true"></i>{% endcomment %}
+                {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} | {{ shop.name | link_to: '/' }}
+                {% comment %}{{ powered_by_link }}{% endcomment %}
+
                 <a href="#" >Terms & Conditions</a>
                  | 
                 <a href="#">Privacy Policy</a> <br>

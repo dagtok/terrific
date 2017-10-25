@@ -3,17 +3,22 @@
         <section class="col-md-4 d-none d-md-block">
           <p class="section-title">EXPLORE</p>
           <ul class="section">
-            <li><a href="#">Search</a></li>
-            <li><a href="#">About Us</a></li>
+            {% if linklists.footer.links.size > 0 %}
+              {% for link in linklists.footer.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
 
         <section class="col-md-4 d-none d-md-block">
           <p class="section-title">ABOUT</p>
           <ul class="section">
-            <li><a href="#">Delivery</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Terms</a></li>
+            {% if linklists.footer.links.size > 0 %}
+              {% for link in linklists.footer.links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
 
@@ -53,6 +58,26 @@
               </a>
             </li>
           </ul>
+
+          {% if section.settings.show_payment_icons %}
+            {% unless shop.enabled_payment_types == empty %}
+              {%- assign payment_icons_available = 'amazon_payments,american_express,apple_pay,bitcoin,cirrus,dankort,diners_club,discover,dogecoin,dwolla,forbrugsforeningen,interac,jcb,litecoin,maestro,master,paypal,visa' | split: ',' -%}
+
+              <span class="visually-hidden">{{ 'layout.footer.payment_methods' | t }}</span>
+              <ul class="payment-methods d-none d-md-block">
+                {% for type in shop.enabled_payment_types %}
+                  {% if payment_icons_available contains type %}
+                    <li>
+                      {%- assign icon_name = type | prepend: 'icon-' -%}
+                      {% comment %}{% include icon_name %}{% endcomment %}
+                      <span class="visually-hidden">{{ type | capitalize | replace: '_', ' ' }}</span>
+                      {{ icon_name }}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endunless %}
+          {% endif %}
           
           <ul class="payment-methods d-none d-md-block">
             <li>
@@ -90,8 +115,7 @@
 
         <div class="col-12">
           <p class="text-center copyright">
-            COPYRIGHT © 2017 ICON • SHOPIFY THEME BY UNDERGROUND MEDIA •  POWERED BY SHOPIFY<br>
-            ALL PRODUCTS AND IMAGERY COURTESY OF RUNWAY SCOUT
+            {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}  •  {{ shop.name | link_to: '/' }}
           </p>
         </div>
       </div>

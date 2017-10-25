@@ -8,33 +8,27 @@
       <section class="col-2">
         <h4>GET IN TOUCH US</h4>
         <ul>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Custom Made</a></li>
+          {%- assign footer_linklist = section.settings.footer_linklist -%}
+          {% if linklists[footer_linklist].links.size > 0 %}
+            {% for link in linklists[footer_linklist].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          {% endif %}
         </ul>
       </section>
       <section class="col-2">
         <h4>CUSTOMER CARE</h4>
         <ul>
-          <li><a href="#">Delivery & Shipping</a></li>
-          <li><a href="#">Returns & Refunds</a></li>
         </ul>
       </section>
       <section class="col-2">
         <h4>LEGAL</h4>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-          <li><a href="#">Terms of Use</a></li>
-          <li><a href="#">Terms of Sale</a></li>
         </ul>
       </section>
       <section class="col-2">
         <h4>STORES & STOCKISTS</h4>
         <ul>
-          <li><a href="#">Jermyn Street</a></li>
-          <li><a href="#">Boulevard St. Germain</a></li>
-          <li><a href="#">Tokyo</a></li>
-          <li><a href="#">Stockists</a></li>
         </ul>
       </section>
       <section class="col-4">

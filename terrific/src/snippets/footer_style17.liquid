@@ -22,17 +22,23 @@
       <section class="row">
         <div class="col-md-6">
           <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Press</a></li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
         <div class="col-md-6">
           <ul>
-            <li><a href="#">Delivery Information</a></li>
-            <li><a href="#">Sizing</a></li>
-            <li><a href="#">Stockists</a></li>
-            <li><a href="#">FAQ</a></li>
+            {% comment %}MOSTRAR ALMENOS CUATRO LINKS{% endcomment %}
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
       </section>
@@ -48,17 +54,27 @@
             </ul>
 
             <ul class="nav ml-auto">
-              <li><a href="#">facebook </a></li>
-              <li><a href="#">instagram</a></li>
-              <li><a href="#">twitter</a></li>
-              <li><a href="#">pinterest</a></li>
+              {% comment %}<li><a href="#">facebook </a></li>{% endcomment %}
+              {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+              {% for social in social_accounts %}
+                {%- assign social_handle = social | handleize -%}
+                {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+
+                {% if settings[social_link] != blank %}
+                  <li>
+                    <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                      {{ social_handle }}
+                    </a>
+                  </li>
+                {% endif %}
+              {% endfor %}
             </ul>
           </div>
         </div>
         <div class="col-md-12">
           <div class="d-flex justify-content-start">
-            <div>© 2017 Paolita. All rights reserved.</div>
-            <div class="ml-auto">Made, with love, by Alchemy Digital</div>
+            <div>{{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} | {{ shop.name | link_to: '/' }}</div>
+            {% comment %}<div class="ml-auto">Made, with love, by Alchemy Digital</div>{% endcomment %}
           </div>
         </div>
       </div>

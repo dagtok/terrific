@@ -8,12 +8,15 @@
               Contact us: shop@chylak.com
             </a>
           </li>
-          <li><a href="#">Subscribe</a></li>
-          <li><a href="#">Terms and Conditions</a></li>
-          <li><a href="#">Cookies</a></li>
+          {%- assign footer_linklist = section.settings.footer_linklist -%}
+          {% if linklists[footer_linklist].links.size > 0 %}
+            {% for link in linklists[footer_linklist].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          {% endif %}
         </ul>
         <div class="ml-auto p-2">
-          © 2017 Zofia Chyla
+          {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} | {{ shop.name | link_to: '/' }}
         </div>
       </div>
     </div>

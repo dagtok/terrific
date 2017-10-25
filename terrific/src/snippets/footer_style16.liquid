@@ -107,7 +107,9 @@
     <section class="col-12">
       <div class="brand-info">
         <h3 class="brand ">B&O PLAY A/S is a member of Bang & Olufsen Group</h3>
-        <h4 class="copyrights">© B&O PLAY 2017</h4>
+        <h4 class="copyrights">
+            {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} | {{ shop.name | link_to: '/' }}
+        </h4>
       </div>
     </section>
   </div>

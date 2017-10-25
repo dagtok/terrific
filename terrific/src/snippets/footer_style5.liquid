@@ -12,14 +12,12 @@
         <nav class="menu">
           <ul class="d-md-flex flex-wrap">
             <li class="float-md-left"><a href="#">ONLINE STORE</a></li>
-            <li class="float-md-left"><a href="#">NEWSLETTER</a></li>
-            <li class="float-md-left"><a href="#">CORPORATE</a></li>
-            <li class="float-md-left"><a href="#">PRIVACY</a></li>
-            <li class="float-md-left"><a href="#">COOKIE POLICY</a></li>
-            <li class="float-md-left"><a href="#">DISCLAIMER</a></li>
-            <li class="float-md-left"><a href="#">SITEMAP</a></li>
-            <li class="float-md-left"><a href="#">BAR MARTINI®</a></li>
-            <li class="float-md-left"><a href="#">STORE LOCATOR</a></li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li class="float-md-left"><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </nav>
       </div>
@@ -29,45 +27,32 @@
       <div class="col-12">
         <h3 class="text-center">Follow us on</h3>
         <nav class="social-networks">
+          {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
           <ul class="follow-us-on d-md-flex flex-wrap">
-            <li>
-              <a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </li>
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
-        </nav>
+        </ul>
       </div>
     </div>
 
     <div class="row brand">
       <div class="col-md-5 text-center text-md-left">
-        © 2017 DOLCE&amp;GABBANA
+        {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: '/' }}
       </div>
       <div class="col-md-7 text-center text-md-right copyrights">
-        VAT NUMBER 09297890155 – SIAE LICENCE N. 637/1/763 – ALL RIGHTS RESERVED
+        {{ powered_by_link }}
       </div>
     </div>
   </footer>

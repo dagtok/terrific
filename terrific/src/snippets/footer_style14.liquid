@@ -5,19 +5,23 @@
         <section class="col-3">
           ABOUT
           <ul>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Affiliates</a></li>
-            <li><a href="#">Stores</a></li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
         <section class="col-3">
           CUSTOMER SERVICE
           <ul>
-            <li><a href="#">Help</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-            <li><a href="#">Payments</a></li>
-            <li><a href="#">Your Order</a></li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
         <section class="col-3">
@@ -36,26 +40,25 @@
           <button>JOIN</button>
           
           <ul class="nav social-icons">
-            <li>
+            {% comment %}<li>
               <a href="#">
                 <i class="fa fa-facebook" aria-hidden="true"></i>
               </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-google-plus" aria-hidden="true"></i>
-              </a>
-            </li>
+            </li>{% endcomment %}
+            {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
 
         </section>

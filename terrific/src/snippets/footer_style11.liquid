@@ -14,42 +14,36 @@
       <div class="col-12 d-flex justify-content-center">
         <ul class="menu nav">
           <li><a href="#">ABOUT</a></li>
-          <li><a href="#">SIZE CHART</a></li>
-          <li><a href="#">CAREERS</a></li>
-          <li><a href="#">CONTACT</a></li>
-          <li><a href="#">WHOLESALE</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">PRIVACY</a></li>
-          <li><a href="#">TERMS</a></li>
-          <li><a href="#">SALES LOGIN</a></li>
+          {%- assign footer_linklist = section.settings.footer_linklist -%}
+          {% if linklists[footer_linklist].links.size > 0 %}
+            {% for link in linklists[footer_linklist].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          {% endif %}
         </ul>
       </div>
       <div class="col-12 d-flex justify-content-center">
         <ul class="social-networks nav">
-          <li>
-            <a class="_blank" href="http://www.facebook.com/prestashop" target="_blank">
-                <i class="fa fa-facebook-official" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a class="_blank" href="http://www.twitter.com/prestashop" target="_blank">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a class="_blank" href="https://www.google.com/+prestashop" rel="publisher" target="_blank">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-            </a>
-          </li>
-          <li>
-            <a class="_blank" href="https://www.google.com/+prestashop" rel="publisher" target="_blank">
-                <i class="fa fa-snapchat" aria-hidden="true"></i>
-            </a>
-          </li>
+          {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+          {% for social in social_accounts %}
+            {%- assign social_handle = social | handleize -%}
+            {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+            {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+            {% if settings[social_link] != blank %}
+              <li>
+                <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                  <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
         </ul>
       </div>
       <div class="col-12 d-flex justify-content-center">
-        © 2017 BBDAKOTA | ALL RIGHTS RESERVED
+        {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} {{ shop.name | link_to: '/' }} 
+         | 
+        <a href="#" >Terms & Conditions</a>
       </div>
     </div>
   </footer>

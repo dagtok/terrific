@@ -3,58 +3,52 @@
     <div class="col-md-8 mr-auto navigation-menu">
       <div class="row">
         <section class="col-md-4">
-          <h2>5th Story</h2>
+          <h2>{{ shop.name | link_to: '/' }}</h2>
           <ul>
-            <li><a href="#">Press</a></li>
-            <li><a href="#">Stockists</a></li>
-            <li><a href="#">FAQs</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact  Us</li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
         <section class="col-md-4">
           <h2>Products</h2>
           <ul>
-            <li><a href="#">All Products</a></li>
-            <li><a href="#">Scarves</a></li>
-            <li><a href="#">Bag Charms</a></li>
-            <li><a href="#">Stickers</a></li>
+            {%- assign footer_linklist = section.settings.footer_linklist -%}
+            {% if linklists[footer_linklist].links.size > 0 %}
+              {% for link in linklists[footer_linklist].links %}
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </section>
         <section class="col-md-4">
           <h2>Follow us</h2>
           <ul>
-            <li>
-              <a href="#">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-                Pinterest
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-                Instagram
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-vimeo" aria-hidden="true"></i>
-                Vimeo
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                Email
-              </a>
-            </li>
+            {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                    {{ social_handle }}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </section>
       </div>
     </div>
     <div class="col-12">
       <div class="copyright-wrapper text-center text-sm-left">
-        Copyright © 2017 <span class="brand">5th Story.</span><br>
+        {{ 'layout.footer.copyright' | t }} &copy; {{ 'now' | date: "%Y" }} <span class="brand">{{ shop.name | link_to: '/' }}</span><br>
         <a href="#">
           Terms & Conditions
         </a>

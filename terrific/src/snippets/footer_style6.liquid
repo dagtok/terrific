@@ -4,27 +4,23 @@
         <section class="col-sm-4 col-md-3">
           <h4>CUSTOMER SERVICE</h4>
           <ul>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">FAQ's</a></li>
-            <li><a href="#">Delivery</a></li>
-            <li><a href="#">Returns</a></li>
+            {% if linklists.footer.links.size > 0 %}
+                {% for link in linklists.footer.links %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+            {% endif %}
           </ul>
         </section>
         <section class="col-sm-4 col-md-3">
           <h4>ONLINE INFORMATION</h4>
           <ul>
             <li><a href="#">My Account</a></li>
-            <li><a href="#">Size guide</a></li>
-            <li><a href="#">Store Locator</a></li>
           </ul>
         </section>
         <section class="col-sm-4 col-md-3">
           <h4>DISCOVER KM</h4>
           <ul>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Terms & Conditions</a></li>
-            <li><a href="#">Business Development</a></li>
           </ul>
         </section>
         <section class="col-12 col-md-3 newsletter">
@@ -41,30 +37,20 @@
             <li>
               <a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
             </li>
-            <li>
-              <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-            </li>
+            {%- assign social_accounts = 'Facebook, Twitter, Pinterest, Instagram, Snapchat, Tumblr, YouTube, Vimeo,' | split: ', ' -%}
+            {% for social in social_accounts %}
+              {%- assign social_handle = social | handleize -%}
+              {% capture social_link %}social_{{ social_handle }}_link{% endcapture %}
+              {% capture social_icon %}fa-{{ social_handle }}{% endcapture %}
+
+              {% if settings[social_link] != blank %}
+                <li>
+                  <a href="{{ settings[social_link] }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: social }}">
+                    <i class="fa {{ social_icon }}" aria-hidden="true"></i>
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
           </ul>
         </section>
       </div>
